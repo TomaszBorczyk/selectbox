@@ -1,0 +1,32 @@
+body {
+  background-color: #606979; }
+  body .selectbox {
+    background-color: #ff9e2b;
+    width: 300px;
+    position: relative; }
+    body .selectbox .selected-option {
+      height: 50px;
+      width: inherit;
+      font-size: 20px;
+      background-color: inherit;
+      border: none; }
+    body .selectbox .options-menu {
+      position: absolute;
+      overflow: scroll;
+      overflow-x: hidden;
+      background-color: #ff9e2b;
+      width: inherit;
+      height: 200px; }
+      body .selectbox .options-menu .option {
+        position: relative;
+        height: 30px;
+        border: 1px solid #000; }
+      body .selectbox .options-menu .option::-webkit-scrollbar-thumb {
+        background-color: #6337b0; }
+    body .selectbox .invisible {
+      visibility: hidden;
+      display: none; }
+    body .selectbox .visible {
+      visibility: visible; }
+
+/*# sourceMappingURL=style.css.map */

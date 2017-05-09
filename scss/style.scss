@@ -1,0 +1,42 @@
+body{
+  background-color: #606979;
+  .selectbox{
+    background-color: #ff9e2b;
+    width: 300px;
+    position: relative;
+    .selected-option{
+      height: 50px;
+      width: inherit;
+      font-size: 20px;
+      background-color: inherit;
+      border: none;
+    }
+    .options-menu{
+      position: absolute;
+      overflow: scroll;
+      overflow-x: hidden;
+      background-color: #ff9e2b;
+      width: inherit;
+      height: 200px;
+      .option{
+        position: relative;
+        height: 30px;
+        border: 1px solid #000;
+      }
+      .option::-webkit-scrollbar-thumb{
+        background-color: #6337b0;
+      }
+
+
+
+    }
+    .invisible{
+      visibility: hidden;
+      display: none;
+    }
+
+    .visible{
+      visibility: visible;
+    }
+  }
+}
