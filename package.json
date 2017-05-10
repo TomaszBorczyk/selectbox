@@ -1,0 +1,22 @@
+{
+  "name": "selectbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomaszBorczyk/selectbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TomaszBorczyk/selectbox/issues"
+  },
+  "homepage": "https://github.com/TomaszBorczyk/selectbox#readme",
+  "devDependencies": {
+    "typescript": "^2.3.2"
+  }
+}

@@ -1,0 +1,70 @@
+@mixin animation($animations...){
+  $length: length($animations);
+  $anim: '';
+
+  @for $i from 1 through $length{
+    $anim: #{$anim + nth($animations, $i)};
+    @if $i<$length{
+      $anim: #{$anim +', '};
+    }
+  }
+  -webkit-animation: $anim;
+  -moz-animation: $anim;
+  -ms-animation: $anim;
+  -o-animation: $anim;
+  animation: $anim;
+}
+
+@mixin keyframes($name){
+  @-webkit-keyframes #{$name}{
+    @content;
+  }
+  @-moz-keyframes #{$name}{
+    @content;
+  }
+  @-o-keyframes #{$name}{
+    @content;
+  }
+  @-ms-keyframes #{$name}{
+    @content;
+  }
+  @keyframes #{$name}{
+    @content;
+  }
+}
+
+@mixin animation-delay($delay...){
+  $length: length($delay);
+  $del: '';
+
+  @for $i from 1 through $length{
+    $del: #{$del + nth($delay, $i)};
+    @if $i<$length{
+      $del: #{$del + ' '};
+    }
+  }
+
+  -webkit-animation-delay: $del;
+  -moz-animation-delay: $del;
+  -ms-animation-delay: $del;
+  -o-animation-delay: $del;
+  animation-delay: $del;
+}
+
+@mixin transition($transitions...){
+  $length: length($transitions);
+  $trans: '';
+
+  @for $i from 1 through $length{
+    $trans: #{$trans +nth($transitions, $i)};
+    @if $i<$length{
+      $del: #{$del +', '};
+    }
+  }
+
+  -webkit-transition: $trans;
+  -moz-transition: $trans;
+  -ms-transition: $trans;
+  -o-transition: $trans;
+  transition: $trans;
+}

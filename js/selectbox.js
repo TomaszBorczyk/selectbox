@@ -2,7 +2,7 @@ var listOfActions = ["1st action", "2nd action", "3rd action", "1st action", "2n
 var selectboxDiv = document.getElementsByClassName("selectbox")[0];
 var optionsMenu;
 var selectedOptionText = "";
-var selectedOptionElement;
+var selectedOptionElement = document.querySelector("#test-id");
 var hint = "Select an option.";
 var CreateNewSelection = (function () {
     function CreateNewSelection() {
@@ -24,13 +24,13 @@ var CreateNewSelection = (function () {
 //                     };
 window.onload = function () {
     var create = new CreateNewSelection();
-    selectedOptionElement = create.createSelection("input", selectedOptionText, "selected-option", selectboxDiv);
-    selectedOptionElement.setAttribute("readonly", null);
+    // selectedOptionElement = create.createSelection("input", selectedOptionText, "selected-option", selectboxDiv);
+    selectedOptionElement.setAttribute("readonly", "readonly");
     optionsMenu = create.createSelection("div", "", "options-menu invisible", selectboxDiv);
     var _loop_1 = function (action) {
         var option = create.createSelection("div", action, "option", optionsMenu);
         option.addEventListener("click", function () {
-            selectedOptionElement.value = action;
+            selectedOptionElement.setAttribute("value", action);
             optionsMenu.classList.add("invisible");
         });
     };

@@ -1,13 +1,17 @@
+@import "prefix-mixin.scss";
+
 body{
   background-color: #606979;
   .selectbox{
     background-color: #ff9e2b;
     width: 300px;
     position: relative;
+
     .selected-option{
       height: 50px;
       width: inherit;
       font-size: 20px;
+      padding-left: 20px;
       background-color: inherit;
       border: none;
     }
@@ -22,6 +26,11 @@ body{
         position: relative;
         height: 30px;
         border: 1px solid #000;
+        padding-left: 20px;
+        &:hover{
+          background-color: #cdfff0;
+          @include transition("background-color 1000ms linear");
+        }
       }
       .option::-webkit-scrollbar-thumb{
         background-color: #6337b0;

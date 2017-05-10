@@ -2,7 +2,7 @@ const listOfActions:Array<string> = ["1st action", "2nd action", "3rd action","1
 const selectboxDiv:Element = document.getElementsByClassName("selectbox")[0];
 var optionsMenu:Element;
 var selectedOptionText:string = "";
-var selectedOptionElement;
+const selectedOptionElement =document.querySelector("#test-id");
 const hint:string = "Select an option."
 
 class CreateNewSelection{
@@ -18,7 +18,6 @@ class CreateNewSelection{
 }
 
 
-
 // window.onload = ()=>{for(let action of listOfActions){
 //                         console.log(action);
 //                         let create = new CreateNewSelection();
@@ -28,14 +27,14 @@ class CreateNewSelection{
 
 window.onload = ()=>{
   let create = new CreateNewSelection();
-  selectedOptionElement = create.createSelection("input", selectedOptionText, "selected-option", selectboxDiv);
-  selectedOptionElement.setAttribute("readonly", null);
+  // selectedOptionElement = create.createSelection("input", selectedOptionText, "selected-option", selectboxDiv);
+  selectedOptionElement.setAttribute("readonly", "readonly");
   optionsMenu = create.createSelection("div", "", "options-menu invisible", selectboxDiv);
 
   for(let action of listOfActions){
     let option = create.createSelection("div", action, "option", optionsMenu);
     option.addEventListener("click", function(){
-      selectedOptionElement.value = action;
+      selectedOptionElement.setAttribute("value", action);
       optionsMenu.classList.add("invisible");
     })
   }
