@@ -1,8 +1,10 @@
 const listOfActions:Array<string> = ["1st action", "2nd action", "3rd action","1st action", "2nd action", "3rd action","1st action", "2nd action", "3rd action"];
 const selectboxDiv:Element = document.getElementsByClassName("selectbox")[0];
-var optionsMenu:Element;
+const optionsMenu:HTMLElement = <HTMLElement>document.getElementsByClassName("options-menu")[0];
+const nanoContent:HTMLElement = <HTMLElement>document.getElementsByClassName("nano-content")[0];
 var selectedOptionText:string = "";
 const selectedOptionElement =document.querySelector("#test-id");
+const scrollContent = document.getElementsByClassName("scrollContent")[0];
 const hint:string = "Select an option."
 
 class CreateNewSelection{
@@ -18,38 +20,28 @@ class CreateNewSelection{
 }
 
 
-// window.onload = ()=>{for(let action of listOfActions){
-//                         console.log(action);
-//                         let create = new CreateNewSelection();
-//                         create.createSelection(action);
-//                       }
-//                     };
-
 window.onload = ()=>{
   let create = new CreateNewSelection();
   // selectedOptionElement = create.createSelection("input", selectedOptionText, "selected-option", selectboxDiv);
   selectedOptionElement.setAttribute("readonly", "readonly");
-  optionsMenu = create.createSelection("div", "", "options-menu invisible", selectboxDiv);
+  // optionsMenu = create.createSelection("div", "", "options-menu fakeScroll", selectboxDiv);
 
   for(let action of listOfActions){
-    let option = create.createSelection("div", action, "option", optionsMenu);
+    let option = create.createSelection("div", action, "option", nanoContent);
     option.addEventListener("click", function(){
       selectedOptionElement.setAttribute("value", action);
-      optionsMenu.classList.add("invisible");
+      optionsMenu.classList.remove("visible");
     })
   }
 
   selectedOptionElement.addEventListener("click", function(){
-    if(optionsMenu.classList.contains("invisible")){
-      optionsMenu.classList.remove("invisible");
+    if(optionsMenu.classList.contains("visible")!=true){
+      optionsMenu.classList.add("visible");
+      optionsMenu.focus();
     }else{
-      optionsMenu.classList.add("invisible");
+      optionsMenu.classList.remove("visible");
     }
+
   });
-
-
-
-
-
 
 }

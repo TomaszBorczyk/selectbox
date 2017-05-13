@@ -1,18 +1,18 @@
-@mixin animation($animations...){
-  $length: length($animations);
-  $anim: '';
+@mixin includeThing($thingName, $things...){
+  $length: length($things);
+  $thg: '';
 
   @for $i from 1 through $length{
-    $anim: #{$anim + nth($animations, $i)};
+    $thg: #{$thg + nth($things, $i)};
     @if $i<$length{
-      $anim: #{$anim +', '};
+      $thg: #{$thg +', '};
     }
   }
-  -webkit-animation: $anim;
-  -moz-animation: $anim;
-  -ms-animation: $anim;
-  -o-animation: $anim;
-  animation: $anim;
+  -webkit-#{$thingName}: $thg;
+  -moz-#{$thingName}: $thg;
+  -ms-#{$thingName}: $thg;
+  -o-#{$thingName}: $thg;
+  #{$thingName}: $thg;
 }
 
 @mixin keyframes($name){
@@ -31,40 +31,4 @@
   @keyframes #{$name}{
     @content;
   }
-}
-
-@mixin animation-delay($delay...){
-  $length: length($delay);
-  $del: '';
-
-  @for $i from 1 through $length{
-    $del: #{$del + nth($delay, $i)};
-    @if $i<$length{
-      $del: #{$del + ' '};
-    }
-  }
-
-  -webkit-animation-delay: $del;
-  -moz-animation-delay: $del;
-  -ms-animation-delay: $del;
-  -o-animation-delay: $del;
-  animation-delay: $del;
-}
-
-@mixin transition($transitions...){
-  $length: length($transitions);
-  $trans: '';
-
-  @for $i from 1 through $length{
-    $trans: #{$trans +nth($transitions, $i)};
-    @if $i<$length{
-      $del: #{$del +', '};
-    }
-  }
-
-  -webkit-transition: $trans;
-  -moz-transition: $trans;
-  -ms-transition: $trans;
-  -o-transition: $trans;
-  transition: $trans;
 }

@@ -3,12 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Selectbox</title>
+    <link rel="stylesheet" href="css/nanoscroller.css">
     <link rel="stylesheet" href="css/style.css">
+
   </head>
   <body>
     <form class="" action="index.html" method="get">
       <div class="selectbox">
         <input type="text" name="test" value="Choose an option" id="test-id" class="selected-option">
+        <div class="options-menu nano">
+          <div class="nano-content">
+
+          </div>
+        </div>
       </div>
       <input type="submit" name="" value="">
     </form>
@@ -17,6 +24,36 @@
       Hola hola
     </div>
 
+
+    <div class="nano test">
+      <div class="nano-content">
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+        <p>Amazing chest ahead -></p>
+      </div>
+    </div>
+
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/jquery.nanoscroller.min.js"></script>
+
+    <script src="js/selectbox.js"></script>
+        <script>
+        $(".nano").nanoScroller();
+        $(".nano").nanoScroller({ alwaysVisible: true });
+        </script>
+
   </body>
-  <script src="js/selectbox.js"></script>
+
 </html>

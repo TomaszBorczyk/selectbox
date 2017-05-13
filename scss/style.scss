@@ -1,11 +1,14 @@
 @import "prefix-mixin.scss";
+$selectbox-primary-color: #83959e;
+$selectbox-hover-color: #75868e;
 
 body{
   background-color: #606979;
   .selectbox{
-    background-color: #ff9e2b;
+    background-color: $selectbox-primary-color;
     width: 300px;
     position: relative;
+    z-index: 3;
 
     .selected-option{
       height: 50px;
@@ -14,38 +17,51 @@ body{
       padding-left: 20px;
       background-color: inherit;
       border: none;
+      border-bottom: 3px solid #000;
+      @include includeThing("transition", "box-shadow 0.15s ease-in-out 0s");
+
+      &:hover{
+        @include includeThing("box-shadow", " inset 0px 0px 62px -11px rgba(0,0,0,0.54)");
+      }
     }
     .options-menu{
       position: absolute;
-      overflow: scroll;
-      overflow-x: hidden;
-      background-color: #ff9e2b;
-      width: inherit;
+      // overflow-y: hidden;
+      background-color: $selectbox-primary-color;
       height: 200px;
+      width: 300px;
+
+      visibility: hidden;
+      z-index: -1;
+      opacity: 0;
+      transform: translateY(-50px);
+      @include includeThing("transition", "all 0.3s ease-in-out 0s", "visibility 0s linear 0.3s", "z-index 0s linear 0.1s");
+
+      &.visible{
+        visibility: visible;
+        z-index: 1;
+        opacity: 1;
+        transform: translateY(0%);
+        @include includeThing("transition-delay", "0s", "0s", "0.3s");
+      }
+
       .option{
         position: relative;
         height: 30px;
-        border: 1px solid #000;
+        border-bottom: 1px solid #000;
         padding-left: 20px;
+        padding-top: 10px;
+        @include includeThing("transition", "background-color 300ms linear");
         &:hover{
-          background-color: #cdfff0;
-          @include transition("background-color 1000ms linear");
+          background-color: $selectbox-hover-color;
         }
       }
-      .option::-webkit-scrollbar-thumb{
-        background-color: #6337b0;
-      }
-
-
-
-    }
-    .invisible{
-      visibility: hidden;
-      display: none;
-    }
-
-    .visible{
-      visibility: visible;
     }
   }
+
+  .test{
+    background-color: #4a8a7e;
+
+  }
+
 }
